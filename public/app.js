@@ -20,7 +20,8 @@
     //Storing single uploaded files into variable
     document.getElementById("files").addEventListener("change", function (e)
     {
-        userFile = e.target.userFile;
+        console.log("dummy text", e.target);
+        userFile = e.target.value;
     });
 
     //Click listener for upload button
@@ -33,6 +34,7 @@
             var storageRef = firebase.storage().ref();
 
             //Creating file reference
+            console.log(userFile);
             var fileRef = storageRef.child(userFile.name);
 
             //Upload status checker reference & call Firebase put to upload file
