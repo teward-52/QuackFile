@@ -1,33 +1,19 @@
 console.log("CONNECTED");
 
-function Account(username, password, fileObj) {
-    this.username = username;
-    this.password = password;
+function Account(email, fileObj) {
+    this.email = email;
     this.fileObj = fileObj;
 }
 
-let un = {
-    get username() {
-
-
-    },
-
-    set username(username) {
+let em = {
+    get email() {
         
-
-    }
-};
-
-let pw = {
-    get password() {
-
-
     },
 
-    set password(password) {
-
-
+    set email(email) {
+        
     }
+
 };
 
 let fo = {
