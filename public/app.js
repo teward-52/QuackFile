@@ -14,17 +14,20 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
+    //Creating userFile reference var
+    var userFile;
+
     //Storing single uploaded files into variable
     document.getElementById("files").addEventListener("change", function (e)
     {
-        var userFile = e.target.userFile;
+        userFile = e.target.userFile;
     });
 
     //Click listener for upload button
     document.getElementById("upload").addEventListener("click", function()
     {
         //Check to make sure the user selected a file
-        if(userFile != null)
+        if(typeof userFile != "undefined")
         {
             //Creating storage reference
             var storageRef = firebase.storage().ref();
