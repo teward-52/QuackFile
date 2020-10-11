@@ -13,3 +13,56 @@
                 // Initialize Firebase
                 firebase.initializeApp(firebaseConfig);
                 firebase.analytics();
+                
+                // Storing uploaded files into array
+                var files = [];
+                document.getElementById("files").addEventListener("change", function (e)
+                {
+                    files = e.target.files;
+                });
+
+                // Creating click listener for upload button
+                document.getElementById("upload").addEventListener("click", function() {
+                    // Makes sure that there is a selected file
+                    if (files.length != 0)
+                    {
+                        // Loop through through selected files
+                        for (let i = 0; i < files.length; i++)
+                        {
+                            // Creating storage reference
+                            var storageRef = firebase.storage().ref();
+                            
+                            var fileRef = storageRef.child(files[i].name)
+                            //^Assumed valid file reference, not sure if path is needed 
+
+                            // Upload file to FireBase
+                            var upload = storage.put(fileRef);
+                            ref.put(fileRef);
+
+                            // Update progress bar
+                            upload.on(
+                                "state_changed",
+                                function progress(snapshot)
+                                {
+                                    var percentage = 
+                                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                                    document.getElementById("progress").value = percentage;
+                                },
+                                function error()
+                                {
+                                    alert("error uploading file");
+                                },
+                                function complete()
+                                {
+                                    document.getElementById(
+                                        "uploading"
+                                    ).innerHTML += `#{files[i].name} upoaded <br />`;
+                                }
+                            );
+                        }
+                    }
+                    else
+                    {
+                        alert("No file has been selected");
+                    }
+                });

@@ -1,0 +1,39 @@
+{
+    "conditions": [
+      {
+        "name": "ios",
+        "expression": "device.os == 'ios'"
+      }
+    ],
+    "parameters": {
+      "welcome_message": {
+        "defaultValue": {
+          "value": "Welcome to this sample app"
+        },
+        "conditionalValues": {
+          "ios": {
+            "value": "Welcome to this sample web app"
+          }
+        }
+      },
+      "welcome_message_caps": {
+        "defaultValue": {
+          "value": "false"
+        }
+      },
+      "header_text": {
+        "defaultValue": {
+          "useInAppDefault": true
+        }
+      }
+    },
+    "version": {
+      "versionNumber": "1",
+      "updateTime": "2020-10-10",
+      "updateUser": {
+        "email": "user@google.com"
+      },
+      "updateOrigin": "CONSOLE",
+      "updateType": "INCREMENTAL_UPDATE"
+    }
+  }
