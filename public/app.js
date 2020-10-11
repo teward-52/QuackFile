@@ -21,7 +21,7 @@
     document.getElementById("files").addEventListener("change", function (e)
     {
         console.log("dummy text", e.target);
-        userFile = e.target.value;
+        userFile = e.target.files[0];
     });
 
     //Click listener for upload button
@@ -38,7 +38,7 @@
             var fileRef = storageRef.child(userFile.name);
 
             //Upload status checker reference & call Firebase put to upload file
-            var uploadStatus = storageRef.put(fileRef);
+            var uploadStatus = fileRef.put(userFile);
             //Indicate to client that file has been uploaded
             uploadStatus.then(function(snapshot)
             {
@@ -47,7 +47,7 @@
             });
 
             //Update progress bar
-            upload.on(
+            uploadStatus.on(
                 "state_changed",
                 function progress(snapshot)
                 {
