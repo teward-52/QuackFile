@@ -9,13 +9,23 @@
             #genmessage {text-align: center}
             #uploading {text-align: center}
         </style>
+
+        <!--Importing User Authentication Module-->
+        <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+        
+        <script src="userauthentication.js"></script>
+    </head>
         <body>
             <div id="genmessage">
                 <img src="Duck Picture.JPG" alt="Duck Image" height="190.5px" width="210.5">
                 <h1>Welcome to QuackFile!</h1>
                 <h2>QuackFile allows you to simply and quickly transfer individual files between devices with minimal loss of quality.</h2>
-                <!--<h3>Please create an account, or log in.</h3>-->
-                <h3>Please click below to retrieve or upload a file.</h3>
+                <h3>Please create an account, or log in.</h3>
+                <!--<h3>Please click below to retrieve or upload a file.</h3>-->
+                <!-- FirebaseUI module -->
+                <div id="firebaseui-auth-container"></div>
+                <div id="loader">Loading...</div>
             </div>
             <div id="uploading">
               <h4>Upload a File</h4><br />
@@ -33,12 +43,6 @@
             <script src="/__/firebase/7.22.1/firebase-storage.js"></script>
             <script src="/__/firebase/7.22.1/firebase.js"></script>
 
-            <!--Importing User Authentication Module-->
-            <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
-            <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-            
-            <script src="userauthentication.js"></script>
-
             <!--Running JavaScript application-->
             <script type="text/javascript" src="app.js"></script>
             
@@ -53,5 +57,4 @@
             });
             </script>
         </body>
-    </head>
 </html>
